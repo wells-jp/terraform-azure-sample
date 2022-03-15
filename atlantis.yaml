@@ -2,7 +2,7 @@ version: 3
 automerge: true
 projects:
   - name: development
-    dir: /
+    dir: .
     workspace: default
     terraform_version: v1.1.7
     autoplan:

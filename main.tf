@@ -50,14 +50,23 @@ resource "azurerm_network_security_rule" "atlantis" {
   network_security_group_name = module.linuxservers.network_security_group_name
 }
 
+<<<<<<< HEAD
 resource "azurerm_network_security_rule" "http" {
   name                        = "atlantis"
+=======
+resource "azurerm_network_security_rule" "ngrok" {
+  name                        = "ngrok"
+>>>>>>> main
   priority                    = 104
   direction                   = "Inbound"
   access                      = "Allow"
   protocol                    = "Tcp"
   source_port_range           = "*"
+<<<<<<< HEAD
   destination_port_range      = "80"
+=======
+  destination_port_range      = "4040"
+>>>>>>> main
   source_address_prefix       = "0.0.0.0/0"
   destination_address_prefix  = "*"
   resource_group_name         = azurerm_resource_group.wellsjp.name
