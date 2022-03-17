@@ -64,6 +64,20 @@ resource "azurerm_network_security_rule" "ngrok" {
   network_security_group_name = module.linuxservers.network_security_group_name
 }
 
+resource "azurerm_network_security_rule" "http" {
+  name                        = "ngrok"
+  priority                    = 105
+  direction                   = "Inbound"
+  access                      = "Allow"
+  protocol                    = "Tcp"
+  source_port_range           = "*"
+  destination_port_range      = "80"
+  source_address_prefix       = "0.0.0.0/0"
+  destination_address_prefix  = "*"
+  resource_group_name         = azurerm_resource_group.wellsjp.name
+  network_security_group_name = module.linuxservers.network_security_group_name
+}
+
 output "linux_vm_public_name" {
   value = module.linuxservers.public_ip_dns_name
 }
